@@ -10,6 +10,7 @@ RSpec.describe 'create new actors' do
       @ford = @raiders.actors.create!(name: 'Harrison Ford', age: 78)
       @allen = @raiders.actors.create!(name: 'Karen Allen', age: 70)
       @freeman = @raiders.actors.create!(name: 'Paul Freeman', age: 78)
+      @davies = Actor.create!(name: 'John Rhys-Davies', age: 77)
 
       @pixar = Studio.create!(name: 'Pixar Studios', location: 'San Francisco')
       @toy = @pixar.movies.create!(title: 'Toy Story', creation_year: 2004, genre: 'Family')
@@ -25,7 +26,7 @@ RSpec.describe 'create new actors' do
 
       fill_in(:name, with: 'John Rhys-Davies')
       fill_in(:age, with: 77)
-      click_button "Create Actor"
+      click_button "Add Actor"
 
       expect(current_path).to eq("/movies/#{@raiders.id}")
       expect(page).to have_content('John Rhys-Davies')
