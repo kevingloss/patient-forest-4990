@@ -27,7 +27,7 @@ RSpec.describe 'studio index' do
 
     it 'underneath each studio it shows their movies' do
       visit '/studios'
-save_and_open_page
+
       within("#studio-#{@universal.id}") do
         expect(page).to have_content(@raiders.title)
         expect(page).to have_content(@shrek.title)
