@@ -14,4 +14,11 @@ RSpec.describe Actor, type: :model do
     expect(Actor.by_age_asc).to eq([allen, ford, freeman])
   end
 
+  it 'can calculate the average age of actors' do
+    ford = Actor.create!(name: 'Harrison Ford', age: 78)
+    allen = Actor.create!(name: 'Karen Allen', age: 70)
+    freeman = Actor.create!(name: 'Paul Freeman', age: 78)
+
+    expect(Actor.avg_age).to eq(75.33)
+  end
 end
