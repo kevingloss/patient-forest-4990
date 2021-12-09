@@ -8,10 +8,10 @@ RSpec.describe 'studio index' do
       @pixar = Studio.create!(name: 'Pixar Studios', location: 'San Francisco')
       @raiders = @universal.movies.create!(title: 'Raiders of the Lost Ark', creation_year: 1981, genre: 'Action/Adventure')
       @shrek = @universal.movies.create!(title: 'Shrek', creation_year: 2001, genre: 'Comedy')
-      @avengers = @universal.movies.create!(title: 'The Avengers', creation_year: 2003, genre: 'Action')
-      @aladdin = @universal.movies.create!(title: 'Alladin', creation_year: 1992, genre: 'Comedy')
-      @toy = @universal.movies.create!(title: 'Toy Story', creation_year: 2004, genre: 'Family')
-      @monster = @universal.movies.create!(title: 'Monster Inc.', creation_year: 2001, genre: 'Comedy')
+      @avengers = @disney.movies.create!(title: 'The Avengers', creation_year: 2003, genre: 'Action')
+      @aladdin = @disney.movies.create!(title: 'Alladin', creation_year: 1992, genre: 'Comedy')
+      @toy = @pixar.movies.create!(title: 'Toy Story', creation_year: 2004, genre: 'Family')
+      @monster = @pixar.movies.create!(title: 'Monster Inc.', creation_year: 2001, genre: 'Comedy')
     end
 
     it "has each studio's name and location" do
@@ -27,7 +27,7 @@ RSpec.describe 'studio index' do
 
     it 'underneath each studio it shows their movies' do
       visit '/studios'
-
+save_and_open_page
       within("#studio-#{@universal.id}") do
         expect(page).to have_content(@raiders.title)
         expect(page).to have_content(@shrek.title)
