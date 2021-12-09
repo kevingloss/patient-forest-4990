@@ -6,6 +6,7 @@
 @ford = @raiders.actors.create!(name: 'Harrison Ford', age: 78)
 @allen = @raiders.actors.create!(name: 'Karen Allen', age: 70)
 @freeman = @raiders.actors.create!(name: 'Paul Freeman', age: 78)
+@davies = Actor.create!(name: 'John Rhys-Davies', age: 77)
 
 @pixar = Studio.create!(name: 'Pixar Studios', location: 'San Francisco')
 @toy = @pixar.movies.create!(title: 'Toy Story', creation_year: 2004, genre: 'Family')
