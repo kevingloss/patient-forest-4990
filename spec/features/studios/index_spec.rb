@@ -25,8 +25,23 @@ RSpec.describe 'studio index' do
       expect(page).to have_content(@pixar.location)
     end
 
-    xit 'underneath each studio it shows their movies' do
+    it 'underneath each studio it shows their movies' do
+      visit '/studios'
 
+      within("#studio-#{@universal.id}") do
+        expect(page).to have_content(@raiders.title)
+        expect(page).to have_content(@shrek.title)
+      end
+
+      within("#studio-#{@disney.id}") do
+        expect(page).to have_content(@avengers.title)
+        expect(page).to have_content(@aladdin.title)
+      end
+
+      within("#studio-#{@pixar.id}") do
+        expect(page).to have_content(@toy.title)
+        expect(page).to have_content(@monster.title)
+      end
     end
   end
 end
