@@ -34,12 +34,14 @@ RSpec.describe 'movies show page' do
       expect(page).to have_content(@freeman.name)
       expect(page).to_not have_content(@buzz.name)
     end
+
     it 'sorts the actors youngest to oldest' do
       visit "/movies/#{@raiders.id}"
 
       expect(@allen.name).to appear_before(@ford.name)
       expect(@ford.name).to appear_before(@freeman.name)
     end
+    
     it 'has the average age of all the actors in the movie' do
       visit "/movies/#{@raiders.id}"
 
